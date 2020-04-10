@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-5.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+<context:component-scan base-package="controller"/>
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
+<property name="prefix" value="jsp/"></property>
+<property name="suffix" value=".jsp"></property>
+<property name="order" value="2"></property>
+
+</bean>
+
+<!-- Interceptors -->
+
+<!-- <mvc:interceptors>
+
+         <mvc:interceptor>
+
+                  <mvc:mapping path="/Spring-student/admin/**" /> 
+
+                  <bean class="interceptor.AdminInterceptor" />
+
+         </mvc:interceptor>
+
+</mvc:interceptors> -->
+<!-- ck에디터 파일 업로드 경로 -->
+
+
+<!--업로드 패스 설정  -->
+<bean class="java.lang.String" id="uploadPath">
+   <constructor-arg value="C:\Users\user\Desktop\workspaceHome\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\Spring-student\">
+
+   </constructor-arg>
+</bean>
+<mvc:annotation-driven />
+
+ <!-- <mvc:resources mapping="/Spring-student/" location="/ckUpload/**" /> <mvc:annotation-driven/> -->
+<!-- 일반 파일업로드 경로  -->
+<!--  <mvc:resources location="/Spring-student/" mapping="/imgUplaod/**"/> -->
+<!-- // 파일크기 지정   --> 
+  <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+   <property name="maxUploadSize" value="10485760"></property>
+  </bean> 
+<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" /> 
+</beans>
