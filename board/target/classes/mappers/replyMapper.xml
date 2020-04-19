@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.board.web.replyMapper">
+
+<select id="getReplyList" resultType="com.board.web.model.ReplyVO">
+select rid,bid,content,reg_id,reg_dt,edit_dt from reply where bid=#{bid} order by reg_dt desc
+
+</select>
+
+<insert id="saveReply" parameterType="com.board.web.model.ReplyVO">
+insert into reply (bid,content,reg_id,reg_dt,edit_dt)
+values(#{bid},#{content},#{reg_id}, now(),now())
+
+</insert>
+
+<update id="updateReply" parameterType="com.board.web.model.ReplyVO">
+update reply set content=#{content},edit_dt =now() where rid=#{rid}
+</update>
+
+<delete id="deleteReply" parameterType="int">
+
+delete from reply where rid=#{rid}
+</delete>
+
+</mapper>
