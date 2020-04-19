@@ -12,7 +12,7 @@
 <body>
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Spring 게시판</a>
+  <a class="navbar-brand" href="#">Spring 게시판!</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -29,7 +29,7 @@
       </li>
   
      <li class="nav-item active">
-         <span class="nav-link">${user.uid }환영합니다.</span>
+         <span class="nav-link">${user.uid }환영합니다!!</span>
          
       </li>
      <li class="nav-item active">
