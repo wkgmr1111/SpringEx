@@ -63,7 +63,7 @@
 
 			<artifactId>spring-core</artifactId>
 
-			<version>4.1.6.RELEASE</version>
+			<version>5.3.19</version>
 
 		</dependency>
 
